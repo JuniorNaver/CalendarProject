@@ -8,59 +8,56 @@
 
 ## 1. (초기 1회만 진행)저장소 클론하기
 
-i) CalendarProject 폴더(소스코드 최상위 폴더)를 생성할 상위 디렉터리 지정하기
+### i) CalendarProject 폴더(소스코드 최상위 폴더)를 생성할 상위 디렉터리 지정하기
     ex) C:\frontenddeveloper
-ii) 우클릭 후 open git bash here 선택
+### ii) 우클릭 후 open git bash here 선택
     -> MINGW64:/c/CalendarProject 상단 배너 확인
-iii) 하위 명령어 순서대로 수행
+### iii) 하위 명령어 순서대로 수행
 ```bash
 git clone https://github.com/JuniorNaver/CalendarProject.git
 cd CalendarProject
+```
 
 ## 2. 브랜치 접속 및 작업하기
 - 항상 최신 main 브랜치에서 해당 브랜치로 접속하여 작업하세요.
+```bash
 git checkout main          # main 브랜치로 이동
 git pull origin main       # 원격 main 최신화
 
 git checkout feature/기능명   # 이미 생성된 기능별 브랜치로 이동
 git pull origin feature/기능명  # 원격 해당 브랜치 최신화
-
+```
 - 브랜치명은 기능별로 아래처럼 작성합니다:
-
+``` bash
 feature/auth       # 로그인/회원가입 기능
 feature/calendar   # 달력 렌더링 및 월/일 이동 기능
 feature/schedule   # 일정 등록/조회/삭제 기능
 feature/ui         # 스타일 및 UI 개선
 feature/utils      # 공통 함수 및 유틸리티
-
+```
 ## 4. GitHub에서 Pull Request(PR) 생성
-GitHub 저장소에서 Pull Requests 탭 클릭
-
-New Pull Request 클릭
-
-base branch: main
-
-compare branch: feature/기능명 선택
-
-제목과 설명을 명확하게 작성 후 PR 생성
-
-팀원 리뷰 후 승인되면 main 브랜치에 병합
+### i) GitHub 저장소에서 Pull Requests 탭 클릭
+### ii) New Pull Request 클릭
+### iii) base branch: main
+### iv) compare branch: feature/기능명 선택
+### v) 제목과 설명을 명확하게 작성 후 PR 생성
+### vi 팀원 리뷰 후 승인되면 main 브랜치에 병합
 
 ## 5. 작업 시작 전 주의사항
-항상 main 브랜치를 최신으로 유지하세요.
+- 항상 main 브랜치를 최신으로 유지하세요.
 
-직접 main 브랜치에 커밋하지 말고 PR을 통해 병합하세요.
+- 직접 main 브랜치에 커밋하지 말고 PR을 통해 병합하세요.
 
-커밋 메시지는 [기능명] 작업 내용 형식을 권장합니다.
+- 커밋 메시지는 [기능명] 작업 내용 형식을 권장합니다.
 
-충돌 발생 시 적극적으로 해결하고 팀원과 소통하세요.
+- 충돌 발생 시 적극적으로 해결하고 팀원과 소통하세요.
 
 ## 6. 추가 팁
-프로젝트 내 파일 구조와 코딩 컨벤션을 지켜주세요.
+- 프로젝트 내 파일 구조와 코딩 컨벤션을 지켜주세요.
 
-기능 완성 후 반드시 테스트를 진행하세요.
+- 기능 완성 후 반드시 테스트를 진행하세요.
 
-궁금한 점이나 문제가 있으면 바로 공유해주세요!
+- 궁금한 점이나 문제가 있으면 바로 공유해주세요!
 
 ## 디렉터리 구조 설명
 /CalendarProject
@@ -80,7 +77,7 @@ compare branch: feature/기능명 선택
 │
 └── data/                ← 샘플 데이터나 로컬 저장소 대체용 파일
     └── sample.json      ← 일정 테스트용 JSON 데이터 (선택사항)
-
+## 브랜치 설명
 /CalendarProject
 ├── 브랜치: feature/auth      → login.html, signup.html, auth.js
 ├── 브랜치: feature/calendar  → calendar.html, calendar.js
