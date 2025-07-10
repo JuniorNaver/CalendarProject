@@ -5,7 +5,7 @@
 효율적인 협업을 위해 아래 가이드를 꼭 따라 주세요!
 
 ---
-# 작업 시작 전 가이드
+# 초기 가이드
 ## 1. (초기 1회만 진행)저장소 클론하기
 
 ### i) CalendarProject 폴더(소스코드 최상위 폴더)를 생성할 상위 디렉터리 지정하기
@@ -50,15 +50,16 @@ cd CalendarProject
 └── 메인 브랜치: main         → 모든 기능이 병합되어 배포되는 기준
 ```
 
+
+# 핵심 가이드[작업 시작 전]
 ---
-# 작업 시작 후 가이드
 ## 1. 브랜치 접속 및 작업하기(가장 중요‼)
 - 항상 최신 main 브랜치에서 해당 브랜치로 접속하여 작업하세요.
 ```bash
 git checkout main          # main 브랜치로 이동
 git pull origin main       # 원격 main 최신화
 
-git checkout feature/기능명   # 이미 생성된 기능별 브랜치로 이동
+git checkout feature/기능명   # 수정하고자 하는 기능별 브랜치로 이동
 git pull origin feature/기능명  # 원격 해당 브랜치 최신화
 ```
 - 브랜치명은 기능별로 아래처럼 작성합니다:
@@ -69,15 +70,7 @@ feature/schedule   # 일정 등록/조회/삭제 기능
 feature/ui         # 스타일 및 UI 개선
 feature/utils      # 공통 함수 및 유틸리티
 ```
-## 3. GitHub에서 Pull Request(PR) 생성
-### i) GitHub 저장소에서 Pull Requests 탭 클릭
-### ii) New Pull Request 클릭
-### iii) base branch: main
-### iv) compare branch: feature/기능명 선택
-### v) 제목과 설명을 명확하게 작성 후 PR 생성
-### vi 팀원 리뷰 후 승인되면 main 브랜치에 병합
-
-## 4. 작업 시작 전 주의사항
+## 2. 작업 시작 전 주의사항
 - 항상 main 브랜치를 최신으로 유지하세요.
 
 - 직접 main 브랜치에 커밋하지 말고 PR을 통해 병합하세요.
@@ -85,6 +78,24 @@ feature/utils      # 공통 함수 및 유틸리티
 - 커밋 메시지는 [기능명] 작업 내용 형식을 권장합니다.
 
 - 충돌 발생 시 적극적으로 해결하고 팀원과 소통하세요.
+
+
+# 핵심 가이드[작업 마친 후]
+---
+## 3. 작업 마친 후 커밋과 푸시하기
+```bash
+git checkout feature/기능명    # 수정하고자 하는 기능별 브랜치로 이동
+git add .                      # 모든 파일 스테이지에 올리기
+git commit -m "커밋문구"        # 문구(수정사항) 작성 후 커밋
+git push                       # 깃허브 feature/기능명 브랜치에 푸시
+```
+## 4. GitHub에서 Pull Request(PR) 생성
+### i) GitHub 저장소에서 Pull Requests 탭 클릭
+### ii) New Pull Request 클릭
+### iii) base branch: main
+### iv) compare branch: feature/기능명 선택
+### v) 제목과 설명을 명확하게 작성 후 PR 생성
+### vi 팀원 리뷰 후 승인되면 main 브랜치에 병합
 
 ## 5. 추가 팁
 - 프로젝트 내 파일 구조와 코딩 컨벤션을 지켜주세요.
