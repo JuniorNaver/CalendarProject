@@ -82,14 +82,16 @@ feature/utils      # 공통 함수 및 유틸리티
 ---
 # 핵심 가이드[작업 마친 후]
 
-## 3. 작업 마친 후 커밋과 푸시하기
+## 3. 작업 마친 후 커밋과 푸시하기(절대 main 브랜치 직접 push X)
+### a) .html .css .js 파일 수정 -> 기능별 브랜치 이용(main 사용 X)
+### b) .md 파일, image 폴더 수정 -> main 브랜치 이용(드물게 사용)
 ```bash
 git checkout feature/기능명    # 수정하고자 하는 기능별 브랜치로 이동
 git add .                      # 모든 파일 스테이지에 올리기
 git commit -m "커밋문구"        # 문구(수정사항) 작성 후 커밋
 git push                       # 깃허브 feature/기능명 브랜치에 푸시
 ```
-## 4. GitHub에서 Pull Request(PR) 생성
+## 4. GitHub에서 Pull Request(PR) 생성(main으로 합치는 작업)
 ### i) GitHub 저장소에서 Pull Requests 탭 클릭
 ### ii) New Pull Request 클릭
 ### iii) base branch: main
