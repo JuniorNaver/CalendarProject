@@ -104,7 +104,7 @@ git push
 ### iii) base branch: main
 ### iv) compare branch: feature/기능명 선택
 ### v) 제목과 설명을 명확하게 작성 후 PR 생성
-### vi 팀원 리뷰 후 승인되면 main 브랜치에 병합
+### vi) 팀원 리뷰(겹치는 코드 아니면 바로 병합해도 괜찮아요!) 후 승인되면 main 브랜치에 병합
 
 ## 5. 추가 팁
 - 프로젝트 내 파일 구조와 코딩 컨벤션을 지켜주세요.
