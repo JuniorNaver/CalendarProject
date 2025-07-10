@@ -6,13 +6,18 @@
 
 ---
 
-## 1. 저장소 클론하기
+## 1. (초기 1회만 진행)저장소 클론하기
 
+i) CalendarProject 폴더(소스코드 최상위 폴더)를 생성할 상위 디렉터리 지정하기
+    ex) C:\frontenddeveloper
+ii) 우클릭 후 open git bash here 선택
+    -> MINGW64:/c/CalendarProject 상단 배너 확인
+iii) 하위 명령어 순서대로 수행
 ```bash
-git clone https://github.com/JuniorNaver/ShareProject.git
-cd ShareProject
+git clone https://github.com/JuniorNaver/CalendarProject.git
+cd CalendarProject
 
-## 2. 브랜치 생성 및 작업하기
+## 2. 브랜치 접속 및 작업하기
 - 항상 최신 main 브랜치에서 해당 브랜치로 접속하여 작업하세요.
 git checkout main          # main 브랜치로 이동
 git pull origin main       # 원격 main 최신화
@@ -58,7 +63,7 @@ compare branch: feature/기능명 선택
 궁금한 점이나 문제가 있으면 바로 공유해주세요!
 
 ## 디렉터리 구조 설명
-/shareProject
+/CalendarProject
 ├── index.html           ← 메인 진입 페이지 (소개/버튼 등)
 ├── login.html           ← 로그인 화면
 ├── signup.html          ← 회원가입 화면
@@ -76,7 +81,7 @@ compare branch: feature/기능명 선택
 └── data/                ← 샘플 데이터나 로컬 저장소 대체용 파일
     └── sample.json      ← 일정 테스트용 JSON 데이터 (선택사항)
 
-/shareProject
+/CalendarProject
 ├── 브랜치: feature/auth      → login.html, signup.html, auth.js
 ├── 브랜치: feature/calendar  → calendar.html, calendar.js
 ├── 브랜치: feature/schedule  → 일정 추가 로직, localStorage
