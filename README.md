@@ -59,8 +59,8 @@ feature/utils      # 공통 함수 및 유틸리티
 
 - 궁금한 점이나 문제가 있으면 바로 공유해주세요!
 
-<pre> <code>
 ## 디렉터리 구조 설명
+<pre> <code>
 /CalendarProject
 ├── index.html           ← 메인 진입 페이지 (소개/버튼 등)
 ├── login.html           ← 로그인 화면
