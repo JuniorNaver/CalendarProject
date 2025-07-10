@@ -56,11 +56,16 @@ cd CalendarProject
 ## 1. 브랜치 접속 및 작업하기(가장 중요‼)
 - 항상 최신 main 브랜치에서 해당 브랜치로 접속하여 작업하세요.
 ```bash
-git checkout main          # main 브랜치로 이동
-git pull origin main       # 원격 main 최신화
+# 1. main 최신화
+git checkout main
+git pull origin main
 
-git checkout feature/기능명   # 수정하고자 하는 기능별 브랜치로 이동
-git pull origin feature/기능명  # 원격 해당 브랜치 최신화
+# 2. 내 브랜치로 전환 + 최신 main 병합
+git checkout feature/브랜치명
+git merge origin/main  # 또는 git rebase origin/main
+
+# 3. 병합 후 커밋 & 푸시
+git push origin feature/브랜치명
 ```
 - 브랜치명은 기능별로 아래처럼 작성합니다:
 ``` bash
