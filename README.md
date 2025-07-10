@@ -59,6 +59,7 @@ feature/utils      # 공통 함수 및 유틸리티
 
 - 궁금한 점이나 문제가 있으면 바로 공유해주세요!
 
+<pre> <code>
 ## 디렉터리 구조 설명
 /CalendarProject
 ├── index.html           ← 메인 진입 페이지 (소개/버튼 등)
@@ -77,7 +78,9 @@ feature/utils      # 공통 함수 및 유틸리티
 │
 └── data/                ← 샘플 데이터나 로컬 저장소 대체용 파일
     └── sample.json      ← 일정 테스트용 JSON 데이터 (선택사항)
+</code> </pre>
 ## 브랜치 설명
+<pre> <code>
 /CalendarProject
 ├── 브랜치: feature/auth      → login.html, signup.html, auth.js
 ├── 브랜치: feature/calendar  → calendar.html, calendar.js
@@ -85,3 +88,4 @@ feature/utils      # 공통 함수 및 유틸리티
 ├── 브랜치: feature/ui        → style.css, calendar.css
 ├── 브랜치: feature/utils     → utils.js (날짜 계산 등)
 └── 메인 브랜치: main         → 모든 기능이 병합되어 배포되는 기준
+</code> </pre>
