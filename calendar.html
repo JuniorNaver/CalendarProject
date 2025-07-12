@@ -13,28 +13,41 @@
     <h1>헤더 영역</h1>
   </header>
   <main>
+    <!--캘린더-->
     <section id="calendar" class="container container-debug">
-      <div id="calendar-controls" class="container container-debug">
+
+      <div id="calendar-controls" class="calendar-area container container-debug">
         <button id="prevBtn" class="btn">◀ 이전</button>
+        <select id="yearSelect">
+          <!-- 동적으로 옵션 자동 생성하여 입력될 예정 -->
+        </select>
+        <select id="monthSelect">
+          <!-- 동적으로 옵션 자동 생성하여 입력될 예정 -->
+        </select>
         <span id="yearMonth" class="display-month"></span>
         <button id="nextBtn" class="btn">다음 ▶</button>
       </div>
-      <table id="calendar-table">
-        <thead id="calendar-head">
-          <tr>
-            <th>일</th>
-            <th>월</th>
-            <th>화</th>
-            <th>수</th>
-            <th>목</th>
-            <th>금</th>
-            <th>토</th>
-          </tr>
-        </thead>
-        <tbody id="calendar-body">
-          <!-- 날짜가 들어갈 자리 -->
-        </tbody>
-      </table>
+
+      <div id="calendar-wrapper" class="calendar-area container container-debug">
+        <table id="yearly-calendar">
+          <thead id="yearly-calendar-head">
+            <tr>
+              <th>일</th>
+              <th>월</th>
+              <th>화</th>
+              <th>수</th>
+              <th>목</th>
+              <th>금</th>
+              <th>토</th>
+            </tr>
+          </thead>
+          <tbody id="calendar-body" class="calendar-cells">
+            <!-- 날짜가 들어갈 자리 -->
+          </tbody>
+        </table>
+      </div>
+
+
     </section>
   </main>
 

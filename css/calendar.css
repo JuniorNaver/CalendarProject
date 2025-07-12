@@ -19,9 +19,9 @@ body {
 }
 
 /* 레이아웃 시각화용, 추후 삭제 예정 */
-/* .container-debug { 
+.container-debug { 
     border: 1px solid #0109f7; 
-} */
+}
 
 header {
     /* 상단 고정, 스크롤하더라도 항상 상단에 그대로 위치 */
@@ -45,23 +45,22 @@ main {
     padding-top: 48px;
 }
 
-#calendar-controls,
-#calendar {
+.calendar-area {
   background-color: #fff;
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0 0 4px rgba(0,0,0,0.05);
 }
 
-#calendar-table {
-    width: 100%;
-    aspect-ratio: 8 / 6;
-    table-layout: fixed;
-    border-collapse: collapse;
+#yearly-calendar {
+  width: 100%;
+  aspect-ratio: 8 / 6;
+  table-layout: fixed;
+  border-collapse: collapse;
 }
 
-#calendar-table th,
-#calendar-table td {
+#yearly-calendar th,
+#yearly-calendar td {
     border: 1px solid #ddd;
     width: 14.28%;      /* 7열 기준으로 균등 분배 */
     aspect-ratio: 1 / 1;   /* 최소 높이 확보 */
@@ -71,21 +70,17 @@ main {
     box-sizing: border-box;
 }
 
-#calendar-table th {
+#yearly-calendar-head {
   background: #f0f0f0;
   text-align: center;
   vertical-align: middle;
   font-weight: 600;
 }
 
-#calendar-table td:hover {
+.calendar-cells td:hover {
   background-color: #f0f8ff; /* 옅은 하늘색 */
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
-}
-
-#calendar-table tbody {
-    height: 100%;
 }
 
 .empty {
