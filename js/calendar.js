@@ -4,7 +4,32 @@ const yearMonthSpan = document.getElementById('yearMonth');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
+const yearSelect = document.getElementById('yearSelect');
+const monthSelect = document.getElementById('monthSelect');
+
+
 let currentDate = new Date();
+
+const currentYear = currentDate.getFullYear();
+const currentMonth = currentDate.getMonth() + 1;
+
+function fillNumbersBetween(firstNum, lastNum, defaultNum, dateUnit, target) {
+    for (let num = firstNum; num <= lastNum; num++){
+        const option = document.createElement("option");
+        option.value = num;
+        if (num === defaultNum) {
+            option.selected = true;
+        }
+        option.textContent = num + dateUnit;
+        target.appendChild(option);
+    }
+
+}
+
+// 최초 값 설정
+const yearRange = 100;
+fillNumbersBetween(currentYear - yearRange, currentYear + yearRange, currentYear, '년', yearSelect);
+fillNumbersBetween(1, 12, currentMonth, '월', monthSelect);
 
 function renderCalendar(date) {
     calendarBody.innerHTML = '';
@@ -69,3 +94,4 @@ nextBtn.addEventListener('click', () => {
 
 // 최초 렌더링
 renderCalendar(currentDate);
+
