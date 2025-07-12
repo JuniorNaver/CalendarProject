@@ -61,7 +61,7 @@ git checkout main
 git pull origin main
 
 # 2. 내 브랜치로 전환 + 최신 main 병합
-git checkout feature/브랜치명
+git checkout feature/브랜치명         #(브랜치가 없다면 해당 명령어로 생성): git checkout -b feature/브랜치명
 git merge origin/main  # 또는 git rebase origin/main
 
 # 3. 병합 후 커밋 & 푸시
