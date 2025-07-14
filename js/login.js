@@ -33,7 +33,7 @@ loginForm.addEventListener('submit', (e) => {
         
         // 1초 후 메인 페이지로 이동
         setTimeout(() => {
-            location.href = "main.html";
+            location.href = "../calendar.html";
         }, 1000);
 
     } else {
