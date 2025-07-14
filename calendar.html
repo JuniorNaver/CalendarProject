@@ -18,14 +18,18 @@
 
       <div id="calendar-controls" class="calendar-area container container-debug">
         <button id="prevBtn" class="btn">◀ 이전</button>
-        <select id="yearSelect">
-          <!-- 동적으로 옵션 자동 생성하여 입력될 예정 -->
-        </select>
-        <select id="monthSelect">
-          <!-- 동적으로 옵션 자동 생성하여 입력될 예정 -->
-        </select>
-        <span id="yearMonth" class="display-month"></span>
+
+        <section class="select-group">
+          <select id="yearSelect" class="yearMonthSelectBox">
+            <!-- 동적으로 옵션 자동 생성하여 입력될 예정 -->
+          </select>
+          <select id="monthSelect" class="yearMonthSelectBox">
+            <!-- 동적으로 옵션 자동 생성하여 입력될 예정 -->
+          </select>
+        </section>
+
         <button id="nextBtn" class="btn">다음 ▶</button>
+
       </div>
 
       <div id="calendar-wrapper" class="calendar-area container container-debug">

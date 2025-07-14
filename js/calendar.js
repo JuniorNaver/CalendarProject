@@ -10,11 +10,11 @@ const monthSelect = document.getElementById('monthSelect');
 
 let currentDate = new Date();
 
-const currentYear = currentDate.getFullYear();
-const currentMonth = currentDate.getMonth() + 1;
+const initialYear = currentDate.getFullYear();
+const initialMonth = currentDate.getMonth() + 1;
 
 function fillNumbersBetween(firstNum, lastNum, defaultNum, dateUnit, target) {
-    for (let num = firstNum; num <= lastNum; num++){
+    for (let num = firstNum; num <= lastNum; num++) {
         const option = document.createElement("option");
         option.value = num;
         if (num === defaultNum) {
@@ -28,16 +28,14 @@ function fillNumbersBetween(firstNum, lastNum, defaultNum, dateUnit, target) {
 
 // 최초 값 설정
 const yearRange = 100;
-fillNumbersBetween(currentYear - yearRange, currentYear + yearRange, currentYear, '년', yearSelect);
-fillNumbersBetween(1, 12, currentMonth, '월', monthSelect);
+fillNumbersBetween(initialYear - yearRange, initialYear + yearRange, initialYear, '년', yearSelect);
+fillNumbersBetween(1, 12, initialMonth, '월', monthSelect);
 
 function renderCalendar(date) {
     calendarBody.innerHTML = '';
 
     const year = date.getFullYear();
     const month = date.getMonth();
-
-    yearMonthSpan.textContent = `${year}년 ${month + 1}월`;
 
     // 이번 달 1일
     const firstDay = new Date(year, month, 1);
@@ -83,15 +81,54 @@ function renderCalendar(date) {
 }
 
 prevBtn.addEventListener('click', () => {
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    renderCalendar(currentDate);
+    let year = Number(yearSelect.value);
+    let month = Number(monthSelect.value);
+
+    if (month === 1) {
+        year -= 1;
+        month = 12;
+    } else {
+        month -= 1;
+    }
+
+    yearSelect.value = year;
+    monthSelect.value = month;
+
+    // 실제 이벤트 발생시켜서 달력 갱신하게 하기
+    yearSelect.dispatchEvent(new Event('change'));
+    monthSelect.dispatchEvent(new Event('change'));
 });
 
 nextBtn.addEventListener('click', () => {
-    currentDate.setMonth(currentDate.getMonth() + 1);
+    let year = Number(yearSelect.value);
+    let month = Number(monthSelect.value);
+
+    if (month === 12) {
+        year += 1;
+        month = 1;
+    } else {
+        month += 1;
+    }
+
+    yearSelect.value = year;
+    monthSelect.value = month;
+
+    // 실제 이벤트 발생시켜서 달력 갱신하게 하기
+    yearSelect.dispatchEvent(new Event('change'));
+    monthSelect.dispatchEvent(new Event('change'));
+});
+
+yearSelect.addEventListener('change', () => {
+    currentDate.setFullYear(Number(yearSelect.value));
+    renderCalendar(currentDate);
+});
+
+monthSelect.addEventListener('change', () => {
+    currentDate.setMonth(Number(monthSelect.value) - 1);
     renderCalendar(currentDate);
 });
 
 // 최초 렌더링
 renderCalendar(currentDate);
+
 
