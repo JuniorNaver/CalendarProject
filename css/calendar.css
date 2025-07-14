@@ -19,9 +19,9 @@ body {
 }
 
 /* 레이아웃 시각화용, 추후 삭제 예정 */
-.container-debug { 
+/* .container-debug { 
     border: 1px solid #0109f7; 
-}
+} */
 
 header {
     /* 상단 고정, 스크롤하더라도 항상 상단에 그대로 위치 */
@@ -50,6 +50,35 @@ main {
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0 0 4px rgba(0,0,0,0.05);
+}
+
+#calendar-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap; /* 화면 좁아질 때 줄바꿈 허용 */
+}
+
+/* 중앙의 셀렉트 박스 그룹 */
+.select-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  flex-grow: 1; /* 가운데 공간 확보 */
+}
+
+.yearMonthSelectBox {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  cursor: pointer;
 }
 
 #yearly-calendar {
@@ -100,3 +129,6 @@ button {
 button:hover {
   background-color: #eef3ff;
 }
+
+
+
