@@ -1,0 +1,5 @@
+input::placeholder {
+  color: #aaa;  /* 연한 회색 */
+  font-style: italic;
+}
+

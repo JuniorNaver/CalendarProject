@@ -3,9 +3,12 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>기본 동적 월별 캘린더</title>
-  <link href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css" rel="stylesheet" />
+  <title>캘린더</title>
+  <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/calendar.css">
+  <link href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css" rel="stylesheet" />
+    <!-- ① Lucide 아이콘 CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
@@ -14,12 +17,11 @@
   </header>
   <main>
     <!--캘린더-->
-    <section id="calendar" class="container container-debug">
+    <section id="calendar" class="container layout-debug">
+      <div id="calendar-controls" class="calendar-area container layout-debug">
+        <i id="prevBtn" data-lucide="circle-chevron-left" class="btn"></i>
 
-      <div id="calendar-controls" class="calendar-area container container-debug">
-        <button id="prevBtn" class="btn">◀ 이전</button>
-
-        <section class="select-group">
+        <section class="select-group layout-debug">
           <select id="yearSelect" class="yearMonthSelectBox">
             <!-- 동적으로 옵션 자동 생성하여 입력될 예정 -->
           </select>
@@ -28,11 +30,11 @@
           </select>
         </section>
 
-        <button id="nextBtn" class="btn">다음 ▶</button>
+        <i id="nextBtn" data-lucide="circle-chevron-right" class="btn"></i>
 
       </div>
 
-      <div id="calendar-wrapper" class="calendar-area container container-debug">
+      <div id="calendar-wrapper" class="calendar-area container layout-debug">
         <table id="yearly-calendar">
           <thead id="yearly-calendar-head">
             <tr>
@@ -50,11 +52,17 @@
           </tbody>
         </table>
       </div>
-
-
     </section>
   </main>
 
+  <section id="menues">
+    <div class="menu-center">
+      <!-- ② 버튼 안에 Lucide 아이콘 -->
+      <i id="addBtn" data-lucide="circle-plus" class="btn center-icon"></i>
+    </div>
+  </section>
+
+  <script src="js/common.js"></script>
   <script src="js/calendar.js"></script>
 </body>
 

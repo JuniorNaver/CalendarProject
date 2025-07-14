@@ -1,0 +1,1 @@
+lucide.createIcons(); // 아이콘 먼저 생성
