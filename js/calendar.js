@@ -120,3 +120,110 @@ addBtn.addEventListener('click', () => {
 });
 
 renderCalendar(currentDate);
+
+// localStorage에서 일정 데이터 불러오기
+function loadSchedules() {
+    const schedules = JSON.parse(localStorage.getItem('schedules') || '[]');
+    return schedules;
+}
+
+// 일정 데이터를 캘린더 날짜 셀에 표시
+function renderSchedules(date) {
+    const schedules = loadSchedules();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1; // 월은 0부터 시작하므로 +1
+    
+    // calendarBody 내부 모든 셀(td) 순회하면서 텍스트 초기화
+    const cells = calendarBody.querySelectorAll('td');
+    cells.forEach(cell => {
+        // 비어있는 셀(empty 클래스)나 숫자가 아닌 셀은 건너뛰기
+        if (cell.classList.contains('empty') || isNaN(cell.textContent)) {
+            return;
+        }
+        // 셀 내부 텍스트 초기화(숫자만 남김)
+        cell.innerHTML = cell.textContent;
+        cell.style.position = 'relative';
+    });
+
+    schedules.forEach(schedule => {
+        const start = schedule.start;
+        const end = schedule.end;
+        
+        // 일정이 이번 달에 포함되는지 확인
+        // (간단히 시작일이 이번 년/월과 같은 경우만 표시)
+        if (start.date.startsWith(`${year}-${String(month).padStart(2, '0')}`)) {
+            const day = Number(start.date.split('-')[2]);
+            
+            // day에 해당하는 셀 찾기 (텍스트가 day인 td)
+            const cell = Array.from(cells).find(td => td.textContent == day && !td.classList.contains('empty'));
+            if (cell) {
+                // 일정 타이틀 표시용 div 생성
+                const scheduleDiv = document.createElement('div');
+                scheduleDiv.textContent = schedule.title;
+                scheduleDiv.style.backgroundColor = schedule.color;
+                scheduleDiv.style.color = '#fff';
+                scheduleDiv.style.fontSize = '0.75rem';
+                scheduleDiv.style.padding = '2px 4px';
+                scheduleDiv.style.borderRadius = '4px';
+                scheduleDiv.style.marginTop = '2px';
+                scheduleDiv.style.overflow = 'hidden';
+                scheduleDiv.style.whiteSpace = 'nowrap';
+                scheduleDiv.style.textOverflow = 'ellipsis';
+                scheduleDiv.style.cursor = 'pointer';
+                
+                // 클릭 시 일정 상세 페이지로 이동 (id를 쿼리 파라미터로 전달)
+                scheduleDiv.addEventListener('click', () => {
+                    location.href = `../schedule.html?id=${schedule.id}`;
+                });
+
+                cell.appendChild(scheduleDiv);
+            }
+        }
+    });
+}
+
+// renderCalendar 함수 내부 마지막에 일정 렌더링 호출 추가
+function renderCalendar(date) {
+    calendarBody.innerHTML = '';
+    const year = date.getFullYear();
+    const month = date.getMonth();
+
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+
+    const startDayOfWeek = firstDay.getDay();
+    const lastDate = lastDay.getDate();
+
+    let row = document.createElement('tr');
+    let cellCount = 0;
+
+    for (let i = 0; i < startDayOfWeek; i++) {
+        let cell = document.createElement('td');
+        cell.classList.add('empty');
+        row.appendChild(cell);
+        cellCount++;
+    }
+
+    for (let day = 1; day <= lastDate; day++) {
+        if (cellCount % 7 === 0) {
+            calendarBody.appendChild(row);
+            row = document.createElement('tr');
+        }
+        let cell = document.createElement('td');
+        cell.textContent = day;
+        row.appendChild(cell);
+        cellCount++;
+    }
+
+    while (cellCount % 7 !== 0) {
+        let cell = document.createElement('td');
+        cell.classList.add('empty');
+        row.appendChild(cell);
+        cellCount++;
+    }
+
+    calendarBody.appendChild(row);
+
+    // 일정 표시 함수 호출
+    renderSchedules(date);
+}
