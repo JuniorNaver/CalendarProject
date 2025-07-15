@@ -16,7 +16,7 @@ body {
     height: 100vh;
 }
 
-.header-buttons button{
+.header-buttons button {
     color: #fff;
     pointer-events: none;
 }
@@ -143,3 +143,20 @@ input:read-only {
 .links-group span {
     color: #ddd;
 }
+
+.message-area {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* 성공 시 텍스트 색상만 변경 */
+.message-area.success {
+    color: #5DAF6C;  /* 초록 */
+}
+
+/* 실패 시 텍스트 색상만 변경 */
+.message-area.error {
+    color: #B22222;  /* 빨강 */
+}
+
