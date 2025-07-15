@@ -1,51 +1,39 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const signupForm = document.getElementById('signup');
+  const userId = document.getElementById('userid');
+  const pw = document.getElementById('pw');
+  const pwConfirm = document.getElementById('pw-confirm');
+  const messageDiv = document.getElementById('message');
 
-const form = document.querySelector('form');
-const userId = document.getElementById('userid');
-const pw = document.getElementById('pw');
-const pwConfirm = document.getElementById('pw-confirm');
+  signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-const signupForm = document.getElementById('signup');
-const loginForm = document.getElementById('loginForm');
-const messageDiv = document.getElementById('message');
+    const userIdtrim = userId.value.trim();
+    const pwtrim = pw.value;
+    const emailtrim = document.getElementById('email').value.trim();
 
-// 회원가입 처리
-signupForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+    if (userId.value.length < 4) {
+      alert("아이디는 4자 이상이어야 합니다.");
+      userId.focus();
+      return;
+    }
 
-  const userIdtrim = document.getElementById('userid').value.trim();
-  const pwtrim = document.getElementById('pw').value;
-  const emailtrim = document.getElementById('email').value.trim();
+    if (localStorage.getItem(userIdtrim)) {
+      alert("이미 존재하는 아이디입니다.");
+      return;
+    }
 
-  const userid = document.getElementById('userid');
+    if (pw.value !== pwConfirm.value) {
+      alert("비밀번호가 일치하지 않습니다.");
+      pwConfirm.focus();
+      return;
+    }
 
-  if (userid.value.length < 4) {
-    alert("아이디는 4자 이상이어야 합니다.");
-    userid.focus();
-    return;
-  }
+    const userData = { userIdtrim, pwtrim, emailtrim };
+    localStorage.setItem(userIdtrim, JSON.stringify(userData));
 
-  if (localStorage.getItem(userIdtrim)) {
-    alert("이미 존재하는 아이디입니다.");
-    return;
-  }
-
-  if (pw.value !== pwConfirm.value) {
-    alert("비밀번호가 일치하지 않습니다.");
-    pwConfirm.focus();
-    return; // 함수 종료
-  }
-
-  const userData = { userIdtrim, pwtrim, emailtrim };
-
-  // 회원 정보 로컬스토리지 저장 (userId 키로)
-  localStorage.setItem(userIdtrim, JSON.stringify(userData));
-
-  // 모든 유효성 검사를 통과했을 경우
-
-  alert("회원가입 성공!");
-  location.href = "login.html"
-
-  console.log(localStorage);
-
-  signupForm.reset();
+    alert("회원가입 성공!");
+    location.href = "login.html";
+    signupForm.reset();
+  });
 });
