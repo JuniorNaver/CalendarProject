@@ -1,3 +1,16 @@
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea,
+label,
+button,
+select {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
 .calendar-area {
   background-color: #fff;
   padding: 16px;
@@ -45,7 +58,7 @@
 
 #yearly-calendar th,
 #yearly-calendar td {
-  border: 1px solid #ddd;
+  border: 1px solid #F2F7F2;
   width: 14.28%;
   /* 7열 기준으로 균등 분배 */
   aspect-ratio: 1 / 1;
@@ -56,22 +69,26 @@
   box-sizing: border-box;
 }
 
+#yearly-calendar th {
+  border: none;
+  border-radius: 10px;
+}
+
 #yearly-calendar-head {
-  background: #f0f0f0;
+  background: #D2E7C9; /* pistachio */
   text-align: center;
   vertical-align: middle;
   font-weight: 600;
 }
 
 .calendar-cells td:hover {
-  background-color: #f0f8ff;
-  /* 옅은 하늘색 */
+  background-color: #A8D5BA; /* soft moss green */
   transition: background-color 0.2s ease-in-out;
   transform: scale(1.1);
 }
 
 .empty {
-  background: #f9f9f9;
+  background: #F2F7F2; /* 아주 연한 자연색 */
 }
 
 
