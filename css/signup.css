@@ -16,6 +16,11 @@ body {
     height: 100vh;
 }
 
+.header-buttons button{
+    color: #fff;
+    pointer-events: none;
+}
+
 .signup-container,
 .login-container {
     color: #2E4D3A;

@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    lucide.createIcons(); // main 브랜치의 아이콘 생성 코드
 
     const loginBtn = document.getElementById('loginBtn');
     const signupBtn = document.getElementById('signupBtn');
-    const logoBtn = document.getElementById('logoBtn'); 
+    const logoBtn = document.getElementById('logoBtn'); // feature 브랜치의 로고 버튼
 
     if (loginBtn) {
         loginBtn.addEventListener('click', () => {
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (logoBtn) {  
+    if (logoBtn) {
         logoBtn.addEventListener('click', () => {
             location.href = '/index.html';
         });
