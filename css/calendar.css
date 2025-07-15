@@ -75,3 +75,15 @@
 }
 
 
+/* CSS에 추가 */
+.schedule-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* 일정 간격 */
+    margin-top: 2px;
+}
+
+.day-number {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
