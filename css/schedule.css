@@ -124,7 +124,6 @@ input[type="radio"]:checked+label.color-option {
 }
 
 
-
 form {
     display: flex;
     flex-direction: column;
@@ -152,9 +151,6 @@ form {
     min-width: 60px;
     font-weight: 500;
 }
-
-/* 날짜/시간 input 크기 조정 */
-
 
 /* 색상 선택 컨테이너 우측 정렬 */
 .color-select-container {
