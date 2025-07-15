@@ -17,8 +17,20 @@ scheduleForm.addEventListener('submit', (event) => {
     const existingDataArr = JSON.parse(localStorage.getItem('schedules') || '[]'); // 저장된 데이터가 없으면 빈 배열 반환
 
 
-    // 추가
-    existingDataArr.push(newData);
+    if (scheduleId) {
+        // 수정 모드 → 같은 ID 가진 데이터 찾아서 교체
+        const idx = existingDataArr.findIndex(item => item.id == scheduleId);
+        if (idx !== -1) {
+            newData.id = Number(scheduleId); // 기존 id 유지
+            existingDataArr[idx] = newData;  // 해당 위치에 덮어쓰기
+        } else {
+            // ID는 있지만 배열에 없으면 → 새로 추가
+            existingDataArr.push(newData);
+        }
+    } else {
+        // 추가 모드
+        existingDataArr.push(newData);
+    }
 
     // 저장(키: schedules, 저장되는 값: 스케쥴데이터 객체 배열)
     localStorage.setItem('schedules', JSON.stringify(existingDataArr));
@@ -107,6 +119,46 @@ function getScheduleData() {
     };
 
     return newSchedule;
+}
+
+// id 값을 전달 받았을 때
+// 1. URL 파라미터에서 id 추출
+const urlParams = new URLSearchParams(window.location.search);
+const scheduleId = urlParams.get('id'); // 문자열
+
+// 2. 해당 id가 존재하면 일정 데이터 불러오기
+if (scheduleId) {
+    const scheduleList = JSON.parse(localStorage.getItem('schedules') || '[]');
+    const scheduleData = scheduleList.find(item => item.id == scheduleId); // 숫자 비교 위해 == 사용
+
+    if (scheduleData) {
+        // 각 입력 필드에 값 넣기
+        titleInput.value = scheduleData.title;
+        startDateInput.value = scheduleData.start.date;
+        endDateInput.value = scheduleData.end.date;
+        allDayCheck.checked = scheduleData.isAllDay;
+
+        if (!scheduleData.isAllDay) {
+            startTimeInput.value = scheduleData.start.time || '';
+            endTimeInput.value = scheduleData.end.time || '';
+        }
+
+        if (scheduleData.memo) {
+            memoCheck.checked = true;
+            memoTextbox.disabled = false;
+            memoTextbox.style.display = '';
+            memoTextbox.value = scheduleData.memo;
+        }
+
+        // 색상 선택 (value 값으로 매칭)
+        const colorRadio = document.querySelector(`input[name="color"][value="${scheduleData.color}"]`);
+        if (colorRadio) {
+            colorRadio.checked = true;
+        }
+
+        // 시간 필드 show/hide 처리
+        allDayCheck.dispatchEvent(new Event('change'));
+    }
 }
 
 
