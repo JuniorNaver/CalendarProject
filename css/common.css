@@ -19,9 +19,9 @@ body {
 }
 
 /* 레이아웃 시각화용, 추후 삭제 예정 */
-.layout-debug { 
+/* .layout-debug { 
     border: 1px solid #0109f7; 
-}
+} */
 
 header {
     /* 상단 고정, 스크롤하더라도 항상 상단에 그대로 위치 */

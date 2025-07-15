@@ -18,33 +18,78 @@
     <main>
         <section id="schedule" class="container layout-debug">
             <form id="scheduleForm">
-                <input type="text" placeholder="제목" id="title" required />
-                <input type="checkbox" id="allDayCheck" class="switch">
-                <span class="slider"></span> 종일
-                <label>
-                    시작
-                    <input type="date" id="startDate" required />
-                    <input type="time" id="startTime" />
-                </label>
-                <label>
-                    종료
-                    <input type="date" id="endDate" required />
-                    <input type="time" id="endTime" />
-                </label>
-                <label>
-                    메모
-                    <input type="checkbox" id="memoCheck">
-                    <span class="slider"></span>
-                </label>
-                <textarea id="memo" placeholder="메모할 내용을 입력하세요" rows="4"></textarea>
-                <label>
-                    중요도:
-                    <select id="priority">
-                        <option value="high">높음</option>
-                        <option value="medium">보통</option>
-                        <option value="low">낮음</option>
-                    </select>
-                </label>
+                <!-- 제목 -->
+                <div id="title-area" class="container layout-debug">
+                    <div class="form-row layout-debug">
+                        <input type="text" placeholder="제목" id="title" required />
+                    </div>
+                </div>
+                <!-- 시간 -->
+                <div id="time-area" class="container layout-debug">
+                    <!-- 슬라이더 그룹 -->
+                    <div class="form-row between layout-debug">
+                        <span class="label">종일</span>
+                        <label class="switch">
+                            <input type="checkbox" id="allDayCheck">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <!-- 날짜/시간 그룹 -->
+                    <div class="form-row layout-debug">
+                        <label>시작</label>
+                        <input type="date" id="startDateInput" class="input" required />
+                        <input type="time" id="startTimeInput" class="input" />
+                    </div>
+                    <div class="form-row layout-debug">
+                        <label>종료</label>
+                        <input type="date" id="endDateInput" class="input" required />
+                        <input type="time" id="endTimeInput" class="input" />
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 색상 선택 -->
+                <div id="color-area" class="container form-row between layout-debug">
+                    <label for="colorSelect" class="label layout-debug">색상 선택</label>
+                    <div class="color-select-container layout-debug">
+                        <input type="radio" name="color" value="#ff4d4d" id="color-red">
+                        <label class="color-option" for="color-red" style="background-color: #ff4d4d;"></label>
+
+                        <input type="radio" name="color" value="#4caf50" id="color-green">
+                        <label class="color-option" for="color-green" style="background-color: #4caf50;"></label>
+
+                        <input type="radio" name="color" value="#2196f3" id="color-blue">
+                        <label class="color-option" for="color-blue" style="background-color: #2196f3;"></label>
+
+                        <input type="radio" name="color" value="#fbc02d" id="color-yellow">
+                        <label class="color-option" for="color-yellow" style="background-color: #fbc02d;"></label>
+
+                        <input type="radio" name="color" value="#9c27b0" id="color-purple">
+                        <label class="color-option" for="color-purple" style="background-color: #9c27b0;"></label>
+
+                        <input type="radio" name="color" value="#ff9800" id="color-orange">
+                        <label class="color-option" for="color-orange" style="background-color: #ff9800;"></label>
+
+                        <input type="radio" name="color" value="#795548" id="color-brown">
+                        <label class="color-option" for="color-brown" style="background-color: #795548;"></label>
+
+                        <input type="radio" name="color" value="#607d8b" id="color-grayblue">
+                        <label class="color-option" for="color-grayblue" style="background-color: #607d8b;"></label>
+                    </div>
+                </div>
+
+                <div id="memo-area" class="container layout-debug">
+                    <div class="form-row between layout-debug">
+                        <label>메모</label>
+                        <label class="switch">
+                            <input type="checkbox" id="memoCheck">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="form-row layout-debug">
+                        <textarea id="memoTextbox" placeholder="메모할 내용을 입력하세요" rows="4"></textarea>
+                    </div>
+                </div>
             </form>
         </section>
     </main>
