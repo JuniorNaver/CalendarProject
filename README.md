@@ -24,19 +24,24 @@ cd CalendarProject
 ├── index.html           ← 메인 진입 페이지 (소개/버튼 등)
 ├── login.html           ← 로그인 화면
 ├── signup.html          ← 회원가입 화면
-├── calendar.html        ← 월별/일별 일정 확인 및 등록
+├── calendar.html        ← 월별 일정 확인 및 등록
+├── schedule.html        ← 일정 등록, 확인 및 수정
 │
 ├── js/                  ← 기능별 JS 모듈 폴더
-│   ├── auth.js          ← 로그인/회원가입 로직
-│   ├── calendar.js      ← 달력 렌더링 및 일정 처리
-│   └── utils.js         ← 공통 함수, 날짜 유틸 등
+│   ├── lonin.js         ← 로그인 로직
+│   ├── signup.js        ← 회원가입 로직
+│   ├── calendar.js      ← 달력 렌더링 및 일정 불러오기
+│   ├── schedule.js      ← 일정 등록 빛 수정, 저장하기
+│   └── common.js        ← 공통 함수 등
 │
 ├── css/                 ← 스타일 파일 폴더
-│   ├── style.css        ← 공통 스타일 (index, login, signup 등)
-│   └── calendar.css     ← 달력 전용 스타일
+│   ├── common.css       ← 공통 스타일 (header, center, btn, 폰트 등)
+│   ├── calendar.css     ← 달력 전용 스타일
+│   ├── schedule.js      ← 일정 등록 페이지 스타일
+│   └── signup.css       ← 회원가입/로그인 스타일
 │
-└── data/                ← 샘플 데이터나 로컬 저장소 대체용 파일
-    └── sample.json      ← 일정 테스트용 JSON 데이터 (선택사항)
+└── image/               ← 아이콘이나 백그라운드 이미지 모음 폴더
+    └── mori_time.svg    ← 아이콘 등
 ```
 
 ## 3. 브랜치 설명
