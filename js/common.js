@@ -1,12 +1,24 @@
-lucide.createIcons(); // 아이콘 먼저 생성
+document.addEventListener('DOMContentLoaded', () => {
 
-const loginBtn = document.getElementById('loginBtn');
-const signupBtn = document.getElementById('signupBtn');
+    const loginBtn = document.getElementById('loginBtn');
+    const signupBtn = document.getElementById('signupBtn');
+    const logoBtn = document.getElementById('logoBtn'); 
 
-loginBtn.addEventListener('click', () => {
-    location.href = '../login.html';
-});
+    if (loginBtn) {
+        loginBtn.addEventListener('click', () => {
+            location.href = '/login.html';
+        });
+    }
 
-signupBtn.addEventListener('click', () => {
-    location.href = '../signup.html';
+    if (signupBtn) {
+        signupBtn.addEventListener('click', () => {
+            location.href = '/signup.html';
+        });
+    }
+
+    if (logoBtn) {  
+        logoBtn.addEventListener('click', () => {
+            location.href = '/index.html';
+        });
+    }
 });
