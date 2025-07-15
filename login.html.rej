@@ -1,0 +1,13 @@
+diff a/login.html b/login.html	(rejected hunks)
+@@ -45,8 +47,8 @@
+             <div id="message" class="message-area"></div>
+         </form>
+     </div>
+-    <script src="/js/common.js"></script>
+-    <script src="/js/login.js"></script>
++    <script src="js/common.js"></script>
++    <script src="js/login.js"></script>
+ </body>
+ 
+ </html>
+\ No newline at end of file

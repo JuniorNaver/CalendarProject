@@ -1,0 +1,20 @@
+diff a/js/common.js b/js/common.js	(rejected hunks)
+@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
+ 
+     const loginBtn = document.getElementById('loginBtn');
+     const signupBtn = document.getElementById('signupBtn');
++    const logoBtn = document.getElementById('logoBtn');
+ 
+     if (loginBtn) {
+         loginBtn.addEventListener('click', () => {
+@@ -15,4 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
+             location.href = '/signup.html';
+         });
+     }
++
++    if (logoBtn) {
++        logoBtn.addEventListener('click', () => {
++            location.href = '/index.html';
++        });
++    }
+ });

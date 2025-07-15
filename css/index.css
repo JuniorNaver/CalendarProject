@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(to bottom right, #e6f0e623, #CCE5D0),
+        url('/image/leaf-blur.jpg');
+    background-blend-mode: luminosity;
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main-logo {
+    font-family: 'Nanum Pen Script';
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 60px;
+}
+
+/* 버튼 묶음 */
+.main-buttons {
+    display: flex;
+    justify-content: center;
+    /* 가운데 정렬 */
+    align-items: center;
+}
+
+.main-buttons button {
+    font-family: 'Nanum Pen Script';
+    background-color: transparent;
+    border: none;
+    padding: 6px 12px;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #333;
+}
+
+.main-buttons button:hover {
+    color: #fff;
+    /* 살짝 커지게 효과 */
+}
+
+
+/* 반응형 대응 */
+@media (max-width: 480px) {
+    .main-buttons {
+        align-self: flex-end;
+    }
+}
