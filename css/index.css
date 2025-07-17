@@ -48,6 +48,9 @@ body {
     /* 살짝 커지게 효과 */
 }
 
+.site-name {
+    cursor: default;
+}
 
 /* 반응형 대응 */
 @media (max-width: 480px) {
